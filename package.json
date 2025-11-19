@@ -81,7 +81,7 @@
     "react-is": "^16.13.1",
     "react-remove-scroll": "^2.4.1",
     "react-remove-scroll-bar": "^2.2.0",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.1",
     "react-style-singleton": "^2.1.1",
     "regenerator-runtime": "^0.13.7",
     "resolve": "^1.20.0",
@@ -112,7 +112,15 @@
     "data:destroy": "node backend/seeder -d",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
-  "author": " ABDESSAMAD BOURHJOUL & SOUHAIL OUABOU & SOUFIAN ZAAM",
+  "author": "ABDESSAMAD BOURHJOUL & SOUHAIL OUABOU & SOUFIAN ZAAM",
   "license": "MIT",
-  "description": "MERN shopping cart app"
+  "description": "MERN shopping cart app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bourhjoul/Mern-Ecommerce-website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bourhjoul/Mern-Ecommerce-website/issues"
+  },
+  "homepage": "https://github.com/Bourhjoul/Mern-Ecommerce-website#readme"
 }

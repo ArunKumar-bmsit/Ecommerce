@@ -1,6 +1,6 @@
 import { Input, InputGroup, InputRightElement } from '@chakra-ui/input'
 import React, { useState } from 'react'
-import { IoCloseOutline } from 'react-icons/io5'
+import { IoMdClose } from 'react-icons/io'
 import { MdSearch } from 'react-icons/md'
 
 const Searchnav = ({history}) => {
@@ -15,7 +15,7 @@ const Searchnav = ({history}) => {
     return (
         <InputGroup >
         <Input value = {keyword} onChange = {e=> setkeyword(e.target.value)} bgColor='white' placeholder='Search here ...'  onKeyPress = {Handlesearch} ></Input>
-        <InputRightElement children={ <MdSearch/>} />
+        <InputRightElement children={ <IoMdClose onClick={()=>setkeyword('')} />} />
         </InputGroup>
 
 

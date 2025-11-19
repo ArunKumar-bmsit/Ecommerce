@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDom from 'react-dom'
-import {IoCloseOutline} from "react-icons/all"
+import { IoMdClose } from "react-icons/all"
 import { Image } from "@chakra-ui/react"
 import { hidden } from 'colorette'
 const STYLE_MODAL ={
@@ -63,7 +63,7 @@ export default function DetailsPop({open,children,OnClose}) {
         <>
         <div style={STYLE_OVERLAY}/>
          <div style={STYLE_MODAL}>
-            <IoCloseOutline style={BTN_MODAL} onClick={OnClose}/>
+            <IoMdClose className='closePop' onClick={OnClose} size='24'/>
            
            <div style={PRODUCTS_IMGS}>
                <div style={img_display}>
