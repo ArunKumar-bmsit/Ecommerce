@@ -4,6 +4,7 @@ import { Image } from "@chakra-ui/react"
 import {Link } from 'react-router-dom'
 import Rating from './Rating'
 import { addToCart } from "../actions/cartActions";
+import { CART_ADD_ITEM } from "../constants/cartConstants";
 import { useDispatch, useSelector } from 'react-redux'
 const CardProduct = ({product}) => {
     const  [showbtn,setShowbtn] = useState(false) 
@@ -21,9 +22,25 @@ const CardProduct = ({product}) => {
            
        }
    }, )
-   const addcart = ()=>{
+   const addcart = () => {
        setIncart(true);
-       dispatch(addToCart(product._id,1))
+       // If the ID is not a 24-char Mongo ObjectId we assume it's a local sample product
+       if (product._id.length !== 24) {
+         const newItem = {
+           product: product._id,
+           name: product.name,
+           images: product.images,
+           price: product.price,
+           countInStock: product.countInStock,
+           qty: 1,
+         };
+         dispatch({ type: CART_ADD_ITEM, payload: newItem });
+         // persist locally so cart survives refresh during demo
+         const stored = JSON.parse(localStorage.getItem('cartItems') || '[]');
+         localStorage.setItem('cartItems', JSON.stringify([...stored, newItem]));
+       } else {
+         dispatch(addToCart(product._id, 1)); // normal backend flow
+       }
    }
     
      return (
